@@ -3,22 +3,22 @@ pipeline {
     stages {
         stage ('build docker image') {
             steps {
-                sh '/usr/bin/docker image build -t <docker hub username>/jenkinsdemo .'
+                sh '/usr/bin/docker image build -t tanmay8180/jenkinsdemo .'
             }
         }
         stage ('docker login') {
             steps {
-                sh 'ehcho <token> | </token>/usr/bin/docker login -u <username> --password-stdin'
+                sh 'ehcho dckr_pat_kdCg8GisGtHc7gyoaCguzj2H6iE | </token>/usr/bin/docker login -u tanmay8180 --password-stdin'
             }
         }
         stage ('push docker image') {
-            stpes {
-                sh '/usr/bin/docker image push <username>/jenkinsdemo'
+            steps {
+                sh '/usr/bin/docker image push tanmay8180/jenkinsdemo'
             }
         }
         stage ('reload docker service') {
             steps {
-                sh '/usr/bin/docker service update --image <username>/jenkinsdemo --force myservice'
+                sh '/usr/bin/docker service update --image tanmay8180/jenkinsdemo --force myservice'
             }
         }
 
