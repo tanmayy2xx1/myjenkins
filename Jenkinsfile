@@ -8,7 +8,7 @@ pipeline {
         }
         stage ('docker login') {
             steps {
-                sh 'ehcho dckr_pat_kdCg8GisGtHc7gyoaCguzj2H6iE | </token>/usr/bin/docker login -u tanmay8180 --password-stdin'
+                sh 'ehcho dckr_pat_kdCg8GisGtHc7gyoaCguzj2H6iE | /usr/bin/docker login -u tanmay8180 --password-stdin'
             }
         }
         stage ('push docker image') {
